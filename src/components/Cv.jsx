@@ -12,7 +12,7 @@ function Cv() {
         <div className='cv-Info'>
         <GeneralInfo infoState={infoState} setInfoState={setInfoState}/>
         <Experience expState={expState} setExpState={setExpState}/>
-        <Practical />
+        <Practical practicalState={practicalState} setPracticalState={setPracticalState}/>
         </div>
         <div className="cvSubmit">
             <h1>General information</h1>
@@ -30,7 +30,14 @@ function Cv() {
             
             <hr />
             <hr />
-            
+
+            <h2>Practical Experience</h2>
+                <p>{practicalState[0]}</p>
+                <p>{practicalState[1]}</p>
+                <p>{practicalState[2]}</p>
+                <p>{practicalState[3]}</p>
+                <p>{practicalState[4]}</p>
+
         </div>
     </div>
   )
