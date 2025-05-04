@@ -6,18 +6,18 @@
     padding: 10px;
 }
 
-.experience h1{
+.experience h1, .practical h1{
     text-align: center;
 }
 
-.experience label{
+.experience label,  .practical label{
     display: flex;
     flex-direction: column;
     gap: 4px;
 } 
 
 
-.experience input {
+.experience input, .practical input{
     min-width: 230px;
     padding: 8px 2px;
     max-width: 320px;
@@ -29,7 +29,7 @@
     min-width: 160px;
 }
 
-.experience button{
+.experience button, .practical button{
     width: 100px;
     border-radius: 10px;
     font-weight: 700;
@@ -39,4 +39,9 @@
     padding: 4px 6px;
     background-color: midnightblue;
     color: aliceblue;
+}
+
+.practical{
+    border: 2px solid green;
+    padding: 10px;
 }

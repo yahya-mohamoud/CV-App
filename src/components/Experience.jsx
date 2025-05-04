@@ -3,15 +3,14 @@ function Experience({expState, setExpState}) {
     function getFormData(formData) {
         const school = formData.get('school')
         const title = formData.get('title')
-        const startDate = formData.get('startDate')
-        const finishedDate = formData.get('finishedDate')
+        const date = formData.get('startDate')
 
-        setExpState([school, title,startDate, finishedDate])
+        setExpState([school, title, date])
         console.log({expState})
     }
   return (
     <section className='experience'>
-        <h1>Experience</h1>
+        <h1>Educational Experience</h1>
         <form action={getFormData}>
             <label>
                 School Name:
@@ -24,12 +23,11 @@ function Experience({expState, setExpState}) {
             </label>
             <br />
             <label>
-              <h3>Date of study</h3>  
-                <span className="date">start date: <input type="date" name='startDate'/></span>
-                <br />
-                <span className="date">finished date: <input type="date" name="finishedDate"/></span>
+                Date of graduation:
+                <span><input type="date" name="title" placeholder="date"/></span>
             </label>
             <br />
+
             <button type="submit">Add</button>
         </form>
     </section>
