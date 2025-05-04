@@ -1,0 +1,38 @@
+.General-info{
+    padding: 0px 20px 0 10px;
+    border: 2px solid purple;
+    padding: 10px;
+}
+
+.General-info h1{
+    text-align: center;
+}
+
+.General-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.General-info input{
+    min-width: 230px;
+    padding: 8px 2px;
+    max-width: 320px;
+}
+
+.General-info label{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.General-info button {
+    width: 100px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 auto;
+    border: none;
+    padding: 4px 6px;
+    background-color: midnightblue;
+    color: aliceblue;
+}

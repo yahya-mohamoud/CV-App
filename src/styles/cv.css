@@ -1,0 +1,29 @@
+.cv {
+    display: flex;
+    gap: 5rem;
+
+}
+
+.cv-Info { 
+    padding: 0 8px;
+    border-right: 10px solid midnightblue;
+}
+
+.cvSubmit {
+    min-width: 300px;
+    width: 500px;
+    border: 2px solid rgb(27, 27, 116);
+    padding: 10px 20px;
+    height: fit-content;
+    background-color: midnightblue;
+    color: aliceblue;
+}
+
+.cvSubmit a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover{
+    color: aqua;
+}

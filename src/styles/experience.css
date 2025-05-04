@@ -1,0 +1,42 @@
+.experience{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid violet;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.experience h1{
+    text-align: center;
+}
+
+.experience label{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+} 
+
+
+.experience input {
+    min-width: 230px;
+    padding: 8px 2px;
+    max-width: 320px;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+
+.experience button{
+    width: 100px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 60px;
+    border: none;
+    padding: 4px 6px;
+    background-color: midnightblue;
+    color: aliceblue;
+}
