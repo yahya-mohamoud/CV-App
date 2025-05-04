@@ -32,8 +32,8 @@ function Practical({practicalState, setPracticalState}) {
             <br />
             <label className='date'>
                   
-                <span>Start date:<input type="date" name='start'/></span>
-                <span>Finish date:<input type="date" name='finish'/></span>
+                <span>From date:<input type="date" name='start'/></span>
+                <span>To date:<input type="date" name='finish'/></span>
             </label>
             <br />
             <button type="submit">Add</button>

@@ -6,7 +6,7 @@ import Practical from './Practical'
 function Cv() {
     const [infoState, setInfoState] = useState(["Guled", "Mohamoud", "example@gamil.com", 90099090])
     const [expState, setExpState] = useState(["calischools","SoftwareEng", "02/20/1990", "03/22/1991"])
-    const [practicalState, setPracticalState] = useState([])
+    const [practicalState, setPracticalState] = useState(["Sahal", "senior dev", "tech lead", "02/04/2023", "03/30/2024"])
   return (
     <div className="cv">
         <div className='cv-Info'>
@@ -35,8 +35,7 @@ function Cv() {
                 <p>{practicalState[0]}</p>
                 <p>{practicalState[1]}</p>
                 <p>{practicalState[2]}</p>
-                <p>{practicalState[3]}</p>
-                <p>{practicalState[4]}</p>
+                <p>{practicalState[3]} - {practicalState[4]}</p>
 
         </div>
     </div>

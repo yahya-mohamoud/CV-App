@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .cv {
     display: flex;
     gap: 5rem;
@@ -5,7 +9,7 @@
 }
 
 .cv-Info { 
-    padding: 0 8px;
+    padding: 10px 8px 0;
     border-right: 10px solid midnightblue;
 }
 
@@ -27,3 +31,23 @@
 a:hover{
     color: aqua;
 }
+
+@media(max-width: 480px) {
+    .cv {
+        flex-direction: column;
+    }
+  
+    .cvSubmit{
+        max-width: 380px;
+        margin: 0;
+    }
+  
+   .cv-Info{
+    border-radius: 5px;
+    border: none;
+   }
+  
+    .experience, .practical, .General-info {
+      width: 370px;
+    }
+  }
