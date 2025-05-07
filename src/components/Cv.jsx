@@ -1,45 +1,68 @@
-import React, { use, useState } from 'react'
-import Experience from './Experience'
-import GeneralInfo from './GeneralInfo'
-import "../styles/cv.css"
-import Practical from './Practical'
+import React, { useState } from 'react';
+import Experience from './Experience';
+import GeneralInfo from './GeneralInfo';
+import Practical from './Practical';
+import '../styles/cv.css';
+
 function Cv() {
-    const [infoState, setInfoState] = useState(["Guled", "Mohamoud", "example@gamil.com", 90099090])
-    const [expState, setExpState] = useState(["calischools","SoftwareEng", "02/20/1990", "03/22/1991"])
-    const [practicalState, setPracticalState] = useState(["Sahal", "senior dev", "tech lead", "02/04/2023", "03/30/2024"])
+  const [formInfo, setFormInfo] = useState({
+    fName: "",
+    lName: "", 
+    email: "", 
+    tel: "", 
+    school: "",
+    study: "", 
+    graduationYr: "",
+    company: "",
+    position: "",
+    responsibility: "",
+    startDt: "",
+    finishDate: ""
+  });
+
+  const [isEditing, setIsEditing] = useState(true); 
+
+  function handleEditToggle() {
+    setIsEditing(prev => !prev); 
+  }
+
   return (
     <div className="cv">
-        <div className='cv-Info'>
-        <GeneralInfo infoState={infoState} setInfoState={setInfoState}/>
-        <Experience expState={expState} setExpState={setExpState}/>
-        <Practical practicalState={practicalState} setPracticalState={setPracticalState}/>
+      {isEditing ? (
+        <div className="cv-Info">
+          <GeneralInfo formInfo={formInfo} setFormInfo={setFormInfo} />
+          <Experience formInfo={formInfo} setFormInfo={setFormInfo} />
+          <Practical formInfo={formInfo} setFormInfo={setFormInfo} />
+          <button onClick={handleEditToggle}>Preview</button>
         </div>
-        <div className="cvSubmit">
+      ) : (
+        <div className="cv_container">
+          <div className="cvSubmit">
             <h1>General information</h1>
-            <h3>{infoState[0]} {infoState[1]}</h3>
-            <p><a href="">{infoState[2]}</a></p>
-            <p>{infoState[3]}</p>
+            <h3>{formInfo.fName} {formInfo.lName}</h3>
+            <p><a href="mailto:{formInfo.email}">{formInfo.email}</a></p>
+            <p>{formInfo.tel}</p>
 
-            <hr />
-            <hr />
-            
+            <hr /><hr />
+
             <h2>Educational experience</h2>
-            <h3>{expState[0]}</h3>
-            <p>{expState[1]}</p>
-            <p>{expState[2]} -  {expState[3]}</p>
-            
-            <hr />
-            <hr />
+            <h3>{formInfo.school}</h3>
+            <p>{formInfo.study}</p>
+            <p>{formInfo.graduationYr}</p>
+
+            <hr /><hr />
 
             <h2>Practical Experience</h2>
-                <p>{practicalState[0]}</p>
-                <p>{practicalState[1]}</p>
-                <p>{practicalState[2]}</p>
-                <p>{practicalState[3]} - {practicalState[4]}</p>
-
+            <p>{formInfo.company}</p>
+            <p>{formInfo.position}</p>
+            <p>{formInfo.responsibility}</p>
+            <p>{formInfo.startDt} - {formInfo.finishDate}</p>
+          </div>
+          <button className="edit" onClick={handleEditToggle}>Edit</button>
         </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Cv
+export default Cv;
