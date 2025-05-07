@@ -1,4 +1,4 @@
-import "../styles/experience.css"
+import "../styles/forms.css"
 function Experience({formInfo, setFormInfo}) {
     function getFormData(e) {
         e.preventDefault(); 
@@ -18,19 +18,37 @@ function Experience({formInfo, setFormInfo}) {
     <section className='experience'>
         <h1>Educational Experience</h1>
         <form onSubmit={getFormData}>
-            <label>
+            <label className="label">
                 School Name:
-                <span><input type="text" required value={formInfo.school} name="school" placeholder="School"/></span>
+                <span><input type="text" required 
+                             value={formInfo.school}  
+                             name="school" placeholder="School"
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, school: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
-            <label>
+            <label className="label">
                 Title of study:
-                <span><input type="text" required value={formInfo.study} name="title" placeholder="Title of study"/></span>
+                <span><input type="text"
+                             required value={formInfo.study}  
+                             name="title" placeholder="Title of study"
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, study: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
-            <label>
+            <label className="label">
                 Date of graduation:
-                <span><input type="date" required value={formInfo.graduationYr} name="Year" placeholder="graduation Year"/></span>
+                <span><input type="date"
+                             required value={formInfo.graduationYr} 
+                             name="Year" placeholder="graduation Year"
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, graduationYr: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
 

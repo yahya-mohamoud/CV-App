@@ -1,4 +1,4 @@
-import '..//styles/genInfo.css'
+import '..//styles/forms.css'
 
 function GeneralInfo({ formInfo, setFormInfo}) {
    function handleForm(e) {
@@ -6,15 +6,15 @@ function GeneralInfo({ formInfo, setFormInfo}) {
     
       const formData = new FormData(e.target);
       const firstName = formData.get("Fname");
-      const lastName = formData.get("Lname");
       const email = formData.get("email");
+      const social = formData.get("social");
       const tel = formData.get("tel");
     
       setFormInfo(prev => ({
         ...prev,
         fName: firstName,
-        lName: lastName,
         email: email,
+        social: social,
         tel: tel
       }));
 
@@ -25,20 +25,48 @@ function GeneralInfo({ formInfo, setFormInfo}) {
     <div className='General-info'>
         <h1>Basic Info</h1>
         <form onSubmit={handleForm}>
-            <label htmlFor="">
-               <span>First Name: </span> <input type="text" value={formInfo.fName} required name="Fname" placeholder='FirstName'/>
+            <label className='label' htmlFor="">
+               <span>Full Name: </span> <input type="text" 
+                                               value={formInfo.fName} 
+                                               required name="Fname" 
+                                               placeholder='Full name'
+                                               onChange={(e) =>
+                                                setFormInfo((prev) => ({ ...prev, fName: e.target.value }))
+                                              }
+                                               />
             </label>
             <br />
-            <label htmlFor="">
-               <span>Last Name: </span> <input type="text" value={formInfo.lName} required name="Lname" placeholder='LastName'/>
+            
+            <br />
+            <label className='label' htmlFor="">
+               <span>Email: </span> <input type="email" 
+                                           value={formInfo.email} 
+                                           required name="email" 
+                                           placeholder='example@gamil.com'
+                                           onChange={(e) =>
+                                             setFormInfo((prev) => ({ ...prev, email: e.target.value }))
+                                           }
+                                           />
             </label>
             <br />
-            <label htmlFor="">
-               <span>Email: </span> <input type="email" value={formInfo.email} required name="email" placeholder='example@gamil.com'/>
+            <label className='label' htmlFor="">
+               <span>Social: </span> <input type="email" 
+                                           value={formInfo.social} 
+                                           required name="social" 
+                                           placeholder='www.google.com'
+                                           onChange={(e) =>
+                                             setFormInfo((prev) => ({ ...prev, social: e.target.value }))
+                                           }
+                                           />
             </label>
             <br />
-            <label htmlFor="">
-               <span>Phone: </span> <input type="tel" value={formInfo.tel} required name="tel" placeholder='123 451 6789'/>
+            <label className='label' htmlFor="">
+               <span>Phone: </span> <input type="tel" value={formInfo.tel} 
+                                           required name="tel" placeholder='123 451 6789'
+                                           onChange={(e) =>
+                                             setFormInfo((prev) => ({ ...prev, tel: e.target.value }))
+                                           }
+                                           />
             </label>
             <br />
             <button type='submit'>add</button>

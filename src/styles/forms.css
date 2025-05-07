@@ -1,40 +1,52 @@
-.General-info{
-    padding: 0px 20px 0 10px;
-    border: 2px solid purple;
+.General-info, .practical, .experience{
     padding: 10px;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: 1px 4px 7px 0px #526fae;
+    border-radius: 20px;
+    background-color: #2f3e5f;
 }
 
-.General-info h1{
+h1{
     text-align: center;
+    padding: 10px 10px 20px;
 }
 
-.General-info form {
+form {
     display: flex;
     flex-direction: column;
 }
 
-.General-info input{
-    min-width: 230px;
-    padding: 8px 2px;
-    max-width: 320px;
-    border: 2px solid grey;
-    border-radius: 10px;
-}
-
-.General-info label{
+.label{
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-.General-info button {
+ input{
+    min-width: 230px;
+    padding: 8px 2px;
+    width: 320px;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+.date{
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+
+button{
     width: 100px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 1rem;
-    margin: 0 auto;
+    margin: 0 120px;
     border: none;
     padding: 4px 6px;
     background-color: midnightblue;
     color: aliceblue;
 }
+
+

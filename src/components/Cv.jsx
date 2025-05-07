@@ -7,8 +7,8 @@ import '../styles/cv.css';
 function Cv() {
   const [formInfo, setFormInfo] = useState({
     fName: "",
-    lName: "", 
     email: "", 
+    social: "",
     tel: "", 
     school: "",
     study: "", 
@@ -28,37 +28,46 @@ function Cv() {
 
   return (
     <div className="cv">
+      <h1>CV Builder</h1>
       {isEditing ? (
         <div className="cv-Info">
-          <GeneralInfo formInfo={formInfo} setFormInfo={setFormInfo} />
+         <div className="cv_components">
+         <GeneralInfo formInfo={formInfo} setFormInfo={setFormInfo} />
           <Experience formInfo={formInfo} setFormInfo={setFormInfo} />
           <Practical formInfo={formInfo} setFormInfo={setFormInfo} />
+         </div>
           <button onClick={handleEditToggle}>Preview</button>
         </div>
       ) : (
         <div className="cv_container">
           <div className="cvSubmit">
-            <h1>General information</h1>
-            <h3>{formInfo.fName} {formInfo.lName}</h3>
-            <p><a href="mailto:{formInfo.email}">{formInfo.email}</a></p>
-            <p>{formInfo.tel}</p>
+
+              <div className="basic">
+                  <h1>{formInfo.fName}</h1>
+                  <p><a href="">{formInfo.email}</a></p>
+                  <p><a href={formInfo.social}>{formInfo.social}</a></p>
+                  <p>{formInfo.tel}</p>
+              </div>
+
+            <hr /><hr />
+              <div className="education">
+                <h2>Educational experience</h2>
+                <h3>{formInfo.school}</h3>
+                <p>{formInfo.study}</p>
+                <p>{formInfo.graduationYr}</p>
+              </div>
 
             <hr /><hr />
 
-            <h2>Educational experience</h2>
-            <h3>{formInfo.school}</h3>
-            <p>{formInfo.study}</p>
-            <p>{formInfo.graduationYr}</p>
-
-            <hr /><hr />
-
-            <h2>Practical Experience</h2>
-            <p>{formInfo.company}</p>
-            <p>{formInfo.position}</p>
-            <p>{formInfo.responsibility}</p>
-            <p>{formInfo.startDt} - {formInfo.finishDate}</p>
+            <div className="practExp">
+                <h2>Practical Experience</h2>
+                <p>{formInfo.company}</p>
+                <p>{formInfo.position}</p>
+                <p>{formInfo.responsibility}</p>
+                <p>{formInfo.startDt} - {formInfo.finishDate}</p>
+            </div>
           </div>
-          <button className="edit" onClick={handleEditToggle}>Edit</button>
+          <button className="edit" onClick={handleEditToggle}>{isEditing ? "Preview" : "Edit"}</button>
         </div>
       )}
     </div>

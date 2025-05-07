@@ -3,20 +3,27 @@ body {
     padding: 0;
 }
 .cv {
-    display: flex;
-    gap: 5rem;
+    /* display: flex;
+    flex-direction: column; */
+     color: aliceblue;
+    /* background-color: #3E517A;  */
+   
+}
 
+.cv > h1{
+    text-align: center;
+    background-color: #3E517A;
 }
 
 .cv-Info { 
-    padding: 10px 8px 0;
-    border-right: 10px solid midnightblue;
+    color: aliceblue;
+    background-color: #3E517A;
 }
 
 .cvSubmit {
-    min-width: 300px;
+    /* min-width: 300px; */
     width: 600px;
-    border: 2px solid rgb(27, 27, 116);
+    /* border: 2px solid rgb(27, 27, 116); */
     padding: 10px 20px;
     height: fit-content;
     background-color: midnightblue;

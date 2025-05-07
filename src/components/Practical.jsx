@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/experience.css'
+import '../styles/forms.css'
 
 function Practical({ formInfo, setFormInfo}) {
 
@@ -28,25 +28,56 @@ function Practical({ formInfo, setFormInfo}) {
     <section className='practical'>
         <h1>Practical experience</h1>
         <form onSubmit={handleClick} className="practicalForm">
-            <label>
+            <label className='label'>
                 Company Name: 
-                <span><input type="text" required value={formInfo.company} name='company'/></span>
+                <span><input type="text" 
+                             required value={formInfo.company} 
+                             name='company'
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, company: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
-            <label>
+            <label className='label'>
                 Position Title: 
-                <span><input type="text" required value={formInfo.position} name='position'/></span>
+                <span><input type="text"
+                             required value={formInfo.position} 
+                             name='position'
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, position: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
-            <label>
+            <label className='label'>
                 Responsibility:  
-                <span><input type="text" required value={formInfo.responsiblity} name='responsibility' placeholder='Job Responsibility'/></span>
+                <span><input type="text"
+                             required value={formInfo.responsiblity} 
+                             name='responsibility' 
+                             placeholder='Job Responsibility'
+                             onChange={(e) =>
+                                setFormInfo((prev) => ({ ...prev, responsiblity: e.target.value }))
+                              }
+                             /></span>
             </label>
             <br />
-            <label className='date'>
+            <label  className='date label'>
                   
-                <span>From date:<input type="date" required value={formInfo.startDt} name='start'/></span>
-                <span>To date:<input type="date" required value={formInfo.finishDt} name='finish'/></span>
+                <span>From date:<input type="date" 
+                                        required value={formInfo.startDt} 
+                                        name='start'
+                                        onChange={(e) =>
+                                            setFormInfo((prev) => ({ ...prev, startDt: e.target.value }))
+                                          }
+                                        /></span>
+                <span>To date:<input type="date"
+                        required value={formInfo.finishDt} 
+                        name='finish'
+                        onChange={(e) =>
+                            setFormInfo((prev) => ({ ...prev, finishDt: e.target.value }))
+                          }
+                        /></span>
             </label>
             <br />
             <button type="submit">Add</button>
