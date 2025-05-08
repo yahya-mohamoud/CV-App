@@ -53,11 +53,23 @@ function Practical({ formInfo, setFormInfo}) {
             <label className='label'>
                 Responsibility:  
                 <span><input type="text"
-                             required value={formInfo.responsiblity} 
+                             required value={formInfo.responsibility} 
                              name='responsibility' 
                              placeholder='Job Responsibility'
                              onChange={(e) =>
-                                setFormInfo((prev) => ({ ...prev, responsiblity: e.target.value }))
+                              setFormInfo((prev) => ({ ...prev, responsibility: e.target.value }))
+                              }
+                             /></span>
+            </label>
+            <br />
+            <label className='label'>
+                Responsibility:  
+                <span><input type=""
+                             required value={formInfo.responsibility} 
+                             name='responsibility' 
+                             placeholder='Job Responsibility'
+                             onChange={(e) =>
+                              setFormInfo((prev) => ({ ...prev, responsibility: e.target.value }))
                               }
                              /></span>
             </label>

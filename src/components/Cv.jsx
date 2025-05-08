@@ -3,21 +3,27 @@ import Experience from './Experience';
 import GeneralInfo from './GeneralInfo';
 import Practical from './Practical';
 import '../styles/cv.css';
+import address from '../assets/address.png'
+import email from '../assets/email.png'
+import phone from '../assets/phone.png'
 
 function Cv() {
   const [formInfo, setFormInfo] = useState({
-    fName: "",
-    email: "", 
-    social: "",
-    tel: "", 
-    school: "",
-    study: "", 
-    graduationYr: "",
-    company: "",
-    position: "",
-    responsibility: "",
-    startDt: "",
-    finishDate: ""
+    fName: "Guled Mohamoud",
+    email: "Mohamoud@email.com", 
+    address: "123 random address",
+    tel: "09090909", 
+    about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat at alias magni doloribus! Amet hic ipsum ipsa labore optio, quibusdam totam esse veniam blanditiis in. Laboriosam perferendis eum porro.",
+    school: "unitversity",
+    study: "basic edu", 
+    graduationYr: "2026-12-11",
+    company: "sahal",
+    position: "senior dev",
+    responsibility: "tech lead",
+    startDt: "2002-01-09",
+    finishDt: "2009-04-08",
+    skills: ["html", "css", "javascript", "React", "mysql"]
+    
   });
 
   const [isEditing, setIsEditing] = useState(true); 
@@ -25,6 +31,10 @@ function Cv() {
   function handleEditToggle() {
     setIsEditing(prev => !prev); 
   }
+
+  const skill = formInfo.skills.map((item) => {
+      return  <li key={item}>{item}</li>
+  })
 
   return (
     <div className="cv">
@@ -36,7 +46,7 @@ function Cv() {
           <Experience formInfo={formInfo} setFormInfo={setFormInfo} />
           <Practical formInfo={formInfo} setFormInfo={setFormInfo} />
          </div>
-          <button onClick={handleEditToggle}>Preview</button>
+          <button className='preview' onClick={handleEditToggle}>Preview</button>
         </div>
       ) : (
         <div className="cv_container">
@@ -44,30 +54,45 @@ function Cv() {
 
               <div className="basic">
                   <h1>{formInfo.fName}</h1>
-                  <p><a href="">{formInfo.email}</a></p>
-                  <p><a href={formInfo.social}>{formInfo.social}</a></p>
-                  <p>{formInfo.tel}</p>
+                  <div className="paras">
+                  <p><img src={email} alt="" /><a href="">{formInfo.email}</a></p>
+                  <p><img src={phone} alt="" />{formInfo.tel}</p>
+                  <p><img src={address} alt="" />{formInfo.address}</p>
+                  </div>
+                  <hr />
+                  <div className="about">
+                  <h3>About me:</h3>
+                  <p>{formInfo.about}</p>
+                  </div>
               </div>
 
-            <hr /><hr />
+            <hr />
               <div className="education">
-                <h2>Educational experience</h2>
-                <h3>{formInfo.school}</h3>
-                <p>{formInfo.study}</p>
-                <p>{formInfo.graduationYr}</p>
+                <h2>Education: </h2>
+               <div className="eduInfo">
+               <h3><b>Graduated school:</b> {formInfo.school}</h3>
+                <p><b>Field of Study: </b>{formInfo.study}</p>
+                <p><b>graduation year: </b> {formInfo.graduationYr}</p>
+               </div>
               </div>
 
-            <hr /><hr />
+            <hr />
 
             <div className="practExp">
                 <h2>Practical Experience</h2>
                 <p>{formInfo.company}</p>
                 <p>{formInfo.position}</p>
                 <p>{formInfo.responsibility}</p>
-                <p>{formInfo.startDt} - {formInfo.finishDate}</p>
+                <p>{formInfo.startDt} - {formInfo.finishDt}</p>
+                <hr />
+                <h3>Skills: </h3>
+                <ul>
+                  {skill}
+                </ul>
+
             </div>
           </div>
-          <button className="edit" onClick={handleEditToggle}>{isEditing ? "Preview" : "Edit"}</button>
+          <button className="edit" onClick={handleEditToggle}>Edit</button>
         </div>
       )}
     </div>

@@ -7,15 +7,17 @@ function GeneralInfo({ formInfo, setFormInfo}) {
       const formData = new FormData(e.target);
       const firstName = formData.get("Fname");
       const email = formData.get("email");
-      const social = formData.get("social");
+      const address = formData.get("address");
       const tel = formData.get("tel");
+      const about = formData.get("about");
     
       setFormInfo(prev => ({
         ...prev,
         fName: firstName,
         email: email,
-        social: social,
-        tel: tel
+        tel: tel,
+        address: address,
+        about: about
       }));
 
       e.target.reset()
@@ -49,17 +51,7 @@ function GeneralInfo({ formInfo, setFormInfo}) {
                                            />
             </label>
             <br />
-            <label className='label' htmlFor="">
-               <span>Social: </span> <input type="email" 
-                                           value={formInfo.social} 
-                                           required name="social" 
-                                           placeholder='www.google.com'
-                                           onChange={(e) =>
-                                             setFormInfo((prev) => ({ ...prev, social: e.target.value }))
-                                           }
-                                           />
-            </label>
-            <br />
+          
             <label className='label' htmlFor="">
                <span>Phone: </span> <input type="tel" value={formInfo.tel} 
                                            required name="tel" placeholder='123 451 6789'
@@ -67,6 +59,29 @@ function GeneralInfo({ formInfo, setFormInfo}) {
                                              setFormInfo((prev) => ({ ...prev, tel: e.target.value }))
                                            }
                                            />
+            </label>
+            <br />
+            <label className='label' htmlFor="">
+               <span>Address: </span> <input type="text" 
+                                           value={formInfo.address} 
+                                           required name="address" 
+                                           placeholder='street, city'
+                                           onChange={(e) =>
+                                             setFormInfo((prev) => ({ ...prev, address: e.target.value }))
+                                           }
+                                           />
+            </label>
+
+            <label htmlFor="" className='label'>
+              About me: 
+              <textarea type="text"
+                        name='about' 
+                        value={formInfo.about} 
+                        placeholder='A little bio about you'
+                        onChange={(e) => {
+                          setFormInfo((prev) => ({...prev, about: e.target.value }))
+                        }}
+                        />
             </label>
             <br />
             <button type='submit'>add</button>
