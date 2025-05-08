@@ -6,6 +6,7 @@ import '../styles/cv.css';
 import address from '../assets/address.png'
 import email from '../assets/email.png'
 import phone from '../assets/phone.png'
+import Skill from './Skill';
 
 function Cv() {
   const [formInfo, setFormInfo] = useState({
@@ -32,9 +33,8 @@ function Cv() {
     setIsEditing(prev => !prev); 
   }
 
-  const skill = formInfo.skills.map((item) => {
-      return  <li key={item}>{item}</li>
-  })
+
+
 
   return (
     <div className="cv">
@@ -45,6 +45,7 @@ function Cv() {
          <GeneralInfo formInfo={formInfo} setFormInfo={setFormInfo} />
           <Experience formInfo={formInfo} setFormInfo={setFormInfo} />
           <Practical formInfo={formInfo} setFormInfo={setFormInfo} />
+          <Skill  formInfo={formInfo} setFormInfo={setFormInfo}/>
          </div>
           <button className='preview' onClick={handleEditToggle}>Preview</button>
         </div>
@@ -85,11 +86,24 @@ function Cv() {
                 <p>{formInfo.responsibility}</p>
                 <p>{formInfo.startDt} - {formInfo.finishDt}</p>
                 <hr />
-                <h3>Skills: </h3>
-                <ul>
-                  {skill}
-                </ul>
+            </div>
 
+            <div className="skill">
+              <h2>Skill:</h2>
+              <div className="skills-list">
+      {formInfo.skills.map((skill, index) => (
+        <div key={index} className="skill-tag">
+          {skill}
+          <button 
+            type="button" 
+            onClick={() => handleRemoveSkill(skill)}
+            className="remove-skill"
+          >
+            ×
+          </button>
+        </div>
+      ))}
+    </div>
             </div>
           </div>
           <button className="edit" onClick={handleEditToggle}>Edit</button>

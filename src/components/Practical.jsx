@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import '../styles/forms.css'
 
 function Practical({ formInfo, setFormInfo}) {
@@ -25,7 +26,11 @@ function Practical({ formInfo, setFormInfo}) {
         e.target.reset()
     }
   return (
+   
+
+
     <section className='practical'>
+      
         <h1>Practical experience</h1>
         <form onSubmit={handleClick} className="practicalForm">
             <label className='label'>
@@ -62,18 +67,7 @@ function Practical({ formInfo, setFormInfo}) {
                              /></span>
             </label>
             <br />
-            <label className='label'>
-                Responsibility:  
-                <span><input type=""
-                             required value={formInfo.responsibility} 
-                             name='responsibility' 
-                             placeholder='Job Responsibility'
-                             onChange={(e) =>
-                              setFormInfo((prev) => ({ ...prev, responsibility: e.target.value }))
-                              }
-                             /></span>
-            </label>
-            <br />
+            
             <label  className='date label'>
                   
                 <span>From date:<input type="date" 
@@ -92,9 +86,14 @@ function Practical({ formInfo, setFormInfo}) {
                         /></span>
             </label>
             <br />
+            
             <button type="submit">Add</button>
         </form>
+
+       
     </section>
+    
+
   )
 }
 
