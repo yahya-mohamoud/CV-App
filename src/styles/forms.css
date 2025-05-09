@@ -1,4 +1,4 @@
-.General-info, .practical, .experience{
+.General-info, .practical, .experience, .skills-section{
     padding: 10px;
     width: 350px;
     margin: 20px auto;
@@ -50,7 +50,13 @@ button{
 }
 
 .skills-section {
-    background-color: #2f3e5f;
-    padding: 4rem 0.2rem 2rem;
-    border-radius: 20px;
+    padding: 4rem 0.2rem 1rem;
+}
+
+.skills-section input {
+    margin: 0 auto;
+}
+
+.skills-section button{
+    width: 150px;
 }
